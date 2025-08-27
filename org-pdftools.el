@@ -149,7 +149,7 @@ with `TO-EXPORT' when exporting links.  Also use reverse translation from
 (defun org-pdftools-abbreviate-file-name (path)
   "Abbreviate `PATH' using `org-pdftools-path-translations'."
   (let ((translation-rule (cl-find-if (lambda (rule)
-                                     (cl-destructuring-bind (from . to) rule
+                                     (cl-destructuring-bind (_from . to) rule
                                        (string-prefix-p to path)))
                                    org-pdftools-path-translations)))
     (if translation-rule
@@ -501,7 +501,7 @@ and append it.  ARG is passed to `org-link-complete-file'."
           ;; or directory.
           (lambda
             (prompt &optional dir default-filename mustmatch initial
-                    predicate)
+                    _predicate)
             (funcall current-read-file-name-function
                      prompt dir default-filename mustmatch initial
                      pdf-or-dir-p))))
