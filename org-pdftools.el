@@ -31,6 +31,7 @@
 (require 'subr-x)
 (require 'cl-lib)
 (require 'org)
+(require 'ox)
 (require 'org-refile nil t)
 (require 'org-noter)
 (require 'pdf-tools)
