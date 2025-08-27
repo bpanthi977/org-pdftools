@@ -77,7 +77,8 @@ And reverse substitutes from `TO' to `FROM' occurs when creating pdf links."
 (defcustom org-pdftools-open-custom-open nil
   "Custom function to open linked pdf files."
   :group 'org-pdftools
-  :type '(choice function nil))
+  :type '(choice (const :tag "No function" nil)
+                 (function :tag "A function to open the PDF")))
 
 (defcustom org-pdftools-use-freepointer-annot nil
   "Whether prompt to use freepointer annotation or not."
