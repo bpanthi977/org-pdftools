@@ -466,12 +466,12 @@ Returns components of the path"
   "Set up pdf links in `org-mode'.
 Optional argument PREFIX specifies link prefix.
 Default value is variable `org-pdftools-link-prefix' (pdf:)."
-  (setq org-pdftools-prefix (or prefix org-pdftools-link-prefix))
-  (org-link-set-parameters org-pdftools-prefix
-                           :follow #'org-pdftools-open
-                           :complete #'org-pdftools-complete-link
-                           :store #'org-pdftools-store-link
-                           :export #'org-pdftools-export))
+  (let ((org-pdftools-prefix (or prefix org-pdftools-link-prefix)))
+    (org-link-set-parameters org-pdftools-prefix
+                             :follow #'org-pdftools-open
+                             :complete #'org-pdftools-complete-link
+                             :store #'org-pdftools-store-link
+                             :export #'org-pdftools-export)))
 
 ;;;###autoload
 (defun org-pdftools-complete-link (&optional arg)
