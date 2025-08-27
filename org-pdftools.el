@@ -134,9 +134,9 @@ Can be one of highlight/underline/strikeout/squiggly."
 Adds translation rule to replace `FROM' with `TO-OPEN' when opening links and
 with `TO-EXPORT' when exporting links. Also use reverse translation from
 `TO-OPEN' to `FROM' when creating links."
-  (cl-pushnew (cons from to-open) org-pdftools-path-translations :test #'equalp)
+  (cl-pushnew (cons from to-open) org-pdftools-path-translations :test #'cl-equalp)
   (when to-export
-    (cl-pushnew (cons from to-export) org-pdftools-path-export-translations :test #'equalp)))
+    (cl-pushnew (cons from to-export) org-pdftools-path-export-translations :test #'cl-equalp)))
 
 (defun org-pdftools-abbreviate-file-name (path)
   "Abbreviate `PATH' using `org-pdftools-path-translations'."
