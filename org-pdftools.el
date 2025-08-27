@@ -294,8 +294,8 @@ Returns components of the path"
                    (isearch-yank-string search-string))))))
           ((cl-getf pdf-link :pathlist)
            (pdf-occur-search
-            pathlist
-            occur-search-string))
+            (cl-getf pdf-link :pathlist)
+            (cl-getf pdf-link :occur-search-string)))
           (t (message "Invalid pdf link.")))))
 
 (defun org-pdftools-get-link ()
