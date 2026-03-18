@@ -73,12 +73,14 @@ And reverse substitutes from `TO' to `FROM' occurs when creating pdf links.
 This variable is used by default `org-pdftools-path-generator' and
 `org-pdftools-path-resolver'."
   :group 'org-pdftools
+  :local t
   :type 'alist)
 (defcustom org-pdftools-path-export-translations nil
   "An alist of (FROM . TO) to specify path translations for export.
 The path starting with `FROM' are expanded to `TO' when exporting links.
 This variable is used by default `org-pdftools-path-exporter'."
   :group 'org-pdftools
+  :local t
   :type 'alist)
 (defcustom org-pdftools-open-custom-open nil
   "Custom function to open linked pdf files."
