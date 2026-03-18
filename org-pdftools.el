@@ -413,7 +413,8 @@ If prefix argument `ARG' is provided open the link with external application."
       (let ((pdf-link (org-pdftools-parse-link link)))
         (if (cl-getf pdf-link :occur-search-string)
             (message "Please install pdf-tools to open pdf-occur links")
-          (org-open-file (cl-getf pdf-link :path)))))))
+          (org-open-file (funcall org-pdftools-path-resolver
+				  (cl-getf pdf-link :path))))))))
 
 ;;;###autoload
 (defun org-pdftools-store-link ()
