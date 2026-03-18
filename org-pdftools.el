@@ -506,14 +506,11 @@ and append it.  ARG is passed to `org-link-complete-file'."
                      prompt dir default-filename mustmatch initial
                      pdf-or-dir-p))))
     (concat
-     (replace-regexp-in-string
-      "^file:"
-      (concat org-pdftools-link-prefix ":")
-      (org-link-complete-file arg))
+     org-pdftools-link-prefix ":"
+     (funcall org-pdftools-path-generator
+	      (string-remove-prefix "file:" (org-link-complete-file arg)))
      "::"
-     (read-from-minibuffer
-      "Page:"
-      "1"))))
+     (read-from-minibuffer "Page:" "1"))))
 
 (provide 'org-pdftools)
 ;;; org-pdftools.el ends here
